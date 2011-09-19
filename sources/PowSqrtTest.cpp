@@ -35,8 +35,8 @@ int main(int argc, char *argv[])
 	run_timer.start();
 	cpu_timer.start();
 	for (size_t j(0); j<1000; j++) {
-		for (size_t k(0); k<n;  k++) 
-			res0 = pow(a[k],0.5);
+		for (size_t k(0); k<n;  k++)
+			res0 = pow(a[k],2.5);
 	}
 	cpu_timer.stop();
 	run_timer.stop();
@@ -46,8 +46,8 @@ int main(int argc, char *argv[])
 	run_timer.start();
 	cpu_timer.start();
 	for (size_t j(0); j<1000; j++) {
-		for (size_t k(0); k<n;  k++) 
-			res0 = sqrt(a[k]);
+		for (size_t k(0); k<n;  k++)
+			res0 = fastpow(sqrt(a[k]), 5);
 	}
 	cpu_timer.stop();
 	run_timer.stop();

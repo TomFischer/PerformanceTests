@@ -33,6 +33,13 @@ TARGET_LINK_LIBRARIES(scpr
 	Base
 )
 
+ADD_EXECUTABLE(PowSqrtTest 
+	PowSqrtTest.cpp
+)
+TARGET_LINK_LIBRARIES(PowSqrtTest
+	Base
+)
+
 ADD_EXECUTABLE(PowTest 
 	PowTest.cpp
 )
