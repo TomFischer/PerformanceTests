@@ -65,5 +65,30 @@ int main(int argc, char *argv[])
 	run_timer.stop();
 	std::cout << "done, time for fastpow: " << run_timer.elapsed() << ", (cpu time: " << cpu_timer.elapsed() << "), res: " << res0 << std::endl;
 
+	double t = 1e-4;
+	std::cout.precision (18);
+	std::cout << t << "^3: " << std::endl << "fastpow: " << fastpow(t, 3) << std::endl << "pow:     " << pow(t,3) << std::endl;
+	std::cout << "(" << t << "^3)^{1/3}: " << std::endl << "fastpow: " << pow(fastpow(t, 3), 1.0/3.0) << std::endl << "pow:     " << pow(pow(t,3.0), 1.0/3.0) << std::endl;
+
+	t = 1e-2;
+	std::cout.precision (18);
+	std::cout << t << "^3: " << std::endl << "fastpow: " << fastpow(t, 3) << std::endl << "pow:     " << pow(t,3) << std::endl;
+	std::cout << "(" << t << "^3)^{1/3}: " << std::endl << "fastpow: " << pow(fastpow(t, 3), 1.0/3.0) << std::endl << "pow:     " << pow(pow(t,3.0), 1.0/3.0) << std::endl;
+
+	t = 1e-1;
+	std::cout.precision (18);
+	std::cout << t << "^3: " << std::endl << "fastpow: " << fastpow(t, 3) << std::endl << "pow:     " << pow(t,3) << std::endl;
+	std::cout << "(" << t << "^3)^{1/3}: " << std::endl << "fastpow: " << pow(fastpow(t, 3), 1.0/3.0) << std::endl << "pow:     " << pow(pow(t,3.0), 1.0/3.0) << std::endl;
+
+	t = 0.4;
+	std::cout.precision (18);
+	std::cout << t << "^3: " << std::endl << "fastpow: " << fastpow(t, 3) << std::endl << "pow:     " << pow(t,3) << std::endl;
+	std::cout << "(" << t << "^3)^{1/3}: " << std::endl << "fastpow: " << pow(fastpow(t, 3), 1.0/3.0) << std::endl << "pow:     " << pow(pow(t,3.0), 1.0/3.0) << std::endl;
+
+	t = 1e-3;
+	std::cout.precision (18);
+	std::cout << t << "^3: " << std::endl << "fastpow: " << fastpow(t, 3) << std::endl << "pow:     " << pow(t,3) << std::endl;
+	std::cout << "(" << t << "^3)^{1/3}: " << std::endl << "fastpow: " << pow(fastpow(t, 3), 1.0/3.0) << std::endl << "pow:     " << pow(pow(t,3.0), 1.0/3.0) << std::endl;
+
 	return 0;
 }

@@ -15,6 +15,21 @@ T fastpow (T base, size_t exp)
 	return result;
 }
 
+double W3Tom( double x)
+{
+   if (x < 0) {
+	   return -pow(fabs(x), 1./3.);
+   } else {
+	   return pow(x, 1./3.);
+   }
+}
+
+double W3Norbert (double x)
+{
+	   double s=pow(x*x,0.5);
+	   return pow(s,1./3.)*x/s;
+}
+
 int main(int argc, char *argv[])
 {
 	const size_t n (100000);
@@ -23,12 +38,12 @@ int main(int argc, char *argv[])
 	std::cout << "initializing vectors ... " << std::flush;
 	double rand_max (static_cast<double>(RAND_MAX));
 	for (size_t k(0); k<n; k++) {
-		a[k] = rand()/rand_max;
+		a[k] = rand()/rand_max - 0.5;
 	}
 	std::cout << "done" << std::endl;
 
 	RunTimeTimer run_timer;
-        CPUTimeTimer cpu_timer;
+	CPUTimeTimer cpu_timer;
 	double res0;
 
 	std::cout << "calculating square root of values with build-in pow ... " << std::flush;
@@ -36,7 +51,8 @@ int main(int argc, char *argv[])
 	cpu_timer.start();
 	for (size_t j(0); j<1000; j++) {
 		for (size_t k(0); k<n;  k++)
-			res0 = pow(a[k],2.5);
+//			res0 = pow(a[k],2.5);
+			res0 = W3Norbert(a[k]);
 	}
 	cpu_timer.stop();
 	run_timer.stop();
@@ -46,8 +62,10 @@ int main(int argc, char *argv[])
 	run_timer.start();
 	cpu_timer.start();
 	for (size_t j(0); j<1000; j++) {
-		for (size_t k(0); k<n;  k++)
-			res0 = fastpow(sqrt(a[k]), 5);
+		for (size_t k(0); k<n;  k++) {
+//			res0 = fastpow(sqrt(a[k]), 5);
+			res0 = W3Tom(a[k]);
+		}
 	}
 	cpu_timer.stop();
 	run_timer.stop();
