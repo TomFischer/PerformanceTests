@@ -9,8 +9,9 @@
 #include <windows.h>
 #endif
 
+#include "TimeMeasurementBase.h"
 
-class RunTimeTimer
+class RunTimeTimer : public TimeMeasurementBase
 {
 public:
 	virtual void start();

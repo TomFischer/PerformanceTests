@@ -5,12 +5,12 @@
 
 #include "TimeMeasurementBase.h"
 
-class CPUTimeTimer
+class CPUTimeTimer : public TimeMeasurementBase
 {
 public:
-        virtual void start();
-        virtual void stop();
-        virtual double elapsed();
+	virtual void start();
+	virtual void stop();
+	virtual double elapsed();
 	~CPUTimeTimer() {};
 private:
 	clock_t _start;
